@@ -26,9 +26,22 @@ app.post("/users/adduser", (req, res) => {
     })
 
     console.log(req.body)
-    res.send("Response recieved: " + req.body)
+    res.send("Response recieved: " + req.body);
 });
 
+app.get("/users/get-all", (req,res) => {
+    const getStatement = `SELECT user_id, username FROM users ORDER BY user_id ASC`
+
+    pool.query(getStatement).then((response) => {
+        console.log("Data recieved");
+        console.log(response.rows);
+        res.json(response.rows)
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).send("Error :(");
+    })
+});
 
 app.listen(4000, () => console.log("Server on localhost:4000"));
 
