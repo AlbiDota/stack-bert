@@ -15,7 +15,7 @@ export default function UserList() {
 
     useEffect(()=>{refreshList()},[]);
     return (
-        <div>
+        <div><br/>
             <button onClick={refreshList}>Refresh</button>
             <h2>Registered users</h2>
             <table>

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function RegisterUser(){
+export default function UserSignup(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault(); //for å ikke refreshe sia
         try { //adressa ligger i package.json under "proxy"
-            await axios.post("/users/adduser",{username, password});
-            alert("User " + username + " created!");
+            await axios.post("/users/user-signup",{username, password});
+            //alert("User " + username + " created!");
         } catch (err) {
             console.error(err);
             alert("Failed to create user!");
