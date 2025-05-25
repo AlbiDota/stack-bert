@@ -68,6 +68,6 @@ app.post("/users/user-login", async (req,res) => {
 });
 //---
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000; //for seinere når jeg evt må bruke secrets
 app.listen(PORT, () => console.log(`Server runnign on ${PORT}`));
 
