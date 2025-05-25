@@ -11,8 +11,11 @@ export default function UserLogin(){
         try {
             await axios.post("/users/user-login",{username,password});
             
+            
+            //if (res.status===200){}
+
         } catch (err) {
-            alert("Failed to login")
+            alert("Login credentials are wrong!!!")
         }
     }
 

@@ -9,9 +9,9 @@ const App = () => {
   return (<>
     
     <div>stack-bert!</div>
+    <UserStatus/>
     <UserSignup/>
     <UserLogin/>
-    <UserStatus/>
     <UserList/>
   </>)
 };

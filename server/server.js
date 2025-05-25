@@ -9,27 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors()); //trengs for å kommunisere på tvers av adresser
 
-app.post("/users/adduser", (req, res) => {
-    const username = req.body["username"]
-    const password = req.body["password"]
-
-    console.log("Username:" + username);
-    console.log("Password:" + password);
-
-    const insertStatement = `INSERT INTO users ( username, password ) 
-        VALUES ('${username}', '${password}');`; //viktig med backticks og single quotes og ikke hermetegn
-
-    pool.query(insertStatement).then((response) => {
-        console.log("Data saved");
-        console.log(response);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-    console.log(req.body)
-    res.send("Response recieved: " + req.body);
-});
 
 app.get("/users/get-all", (req,res) => {
     const getStatement = `SELECT user_id, username FROM users ORDER BY user_id ASC`
@@ -66,13 +45,17 @@ app.post("/users/user-signup", async (req,res) => {
 
 app.post("/users/user-login", async (req,res) => {
     const {username,password} = req.body;
-    const getUser = `SELECT * FROM users WEHERE username = '${username}' ORDER BY user_id ASC`;
-    const user = await pool.query(getUser);
-    if (!user) {
+
+    const getUser = `SELECT * FROM users WHERE username = $1 ORDER BY user_id ASC`;
+    const result = await pool.query(getUser, [username]);
+
+    if (result.rows.length === 0) {
         console.log("User not found!");
         res.status(404).send("User not found!");
         return;
     };
+
+    const user = result.rows[0];
 
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
@@ -80,10 +63,11 @@ app.post("/users/user-login", async (req,res) => {
         res.status(401).send("Wrong password!");
         return;
     }
-
-    res.status(200).send("Ok");
+    console.log("Success!")
+    res.status(200).json({message: "Login successful", userId: user.user_id});
 });
 //---
 
-app.listen(4000, () => console.log("Server on localhost:4000"));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server runnign on ${PORT}`));
 
