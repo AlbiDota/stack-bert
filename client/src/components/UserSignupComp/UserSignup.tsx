@@ -5,7 +5,7 @@ export default function UserSignup(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault(); //for å ikke refreshe sia
         try { //adressa ligger i package.json under "proxy"
             await axios.post("/users/user-signup",{username, password});

@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+type User = {
+    user_id: number;
+    username: string;
+};
+
 export default function UserList() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<User[]>([]);
 
     const refreshList = async () => {
         try {

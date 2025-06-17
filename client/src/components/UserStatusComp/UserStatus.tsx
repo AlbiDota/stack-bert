@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 
-export default function UserStatus(user) {
+export default function UserStatus(user:object) {
 
 
     return (

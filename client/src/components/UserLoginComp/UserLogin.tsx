@@ -6,7 +6,7 @@ export default function UserLogin(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
             await axios.post("/users/user-login",{username,password});

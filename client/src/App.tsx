@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import Home from "./pages/Home.tsx";
-import MainLayout from "./layouts/MainLayout.tsx";
+import MainLayout from "./layouts/MainLayout";
+import Home from "./pages/Home";
+import Summoner from "./pages/Summoner";
 
 const App = () => {
 
@@ -13,7 +14,7 @@ const App = () => {
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path={"/"} element={<Home />} />
-
+                    <Route path={"/lol"} element={<Summoner />} />
                 </Route>
                 
             </Routes>
