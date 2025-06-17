@@ -8,6 +8,17 @@ This one can be considered an "extention" of ["react-bert"](https://github.com/A
 My goal with this project is to get a better understanding and become more familiar with Node and backend-programming in JavaScript.
 
 
+## Run stack locally
+### Run client
+
+```
+npm start
+```
+
+### Run server
+```
+npm run dev
+```
 
 ---
 
