@@ -11,12 +11,12 @@ My goal with this project is to get a better understanding and become more famil
 ## Run stack locally
 ### Run client
 
-```
+```in "client" directory
 npm start
 ```
 
 ### Run server
-```
+``` in "server" directory
 npm run dev
 ```
 

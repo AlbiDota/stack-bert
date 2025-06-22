@@ -16,7 +16,7 @@ async function getAllUsers() {
 async function signupUser(username, password) {
     const hash = await bcrypt.hash(password,12) //4096
     const insertStatement = `INSERT INTO users ( username, password ) 
-        VALUES ('$1', '$2');`;
+        VALUES ($1, $2);`;
     try {
         await pool.query(insertStatement,[username, hash]);
     } catch (err) {

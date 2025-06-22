@@ -1,0 +1,20 @@
+.home-wrapper {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.home-main {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-empty {
+    flex: 1;
+}
+
+.home-side {
+    flex: 1;
+}
