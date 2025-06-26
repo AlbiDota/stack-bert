@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../../../utils/AuthContext";
 
 export default function UserLogin(){
     //const {username, password} = req.body;
+    const {login} = useAuth();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
-            await axios.post("/users/user-login",{username,password});
+            const res = await login(username, password);
             
-            
-            //if (res.status===200){}
 
         } catch (err) {
             alert("Login credentials are wrong!!!")

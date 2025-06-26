@@ -9,7 +9,7 @@ export default function UserSignup(){
         e.preventDefault(); //for å ikke refreshe sia
         try { //adressa ligger i package.json under "proxy"
             await axios.post("/users/user-signup",{username, password});
-            //alert("User " + username + " created!");
+            alert("User " + username + " created!");
         } catch (err) {
             console.error(err);
             alert("Failed to create user!");

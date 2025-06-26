@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useAuth } from "../../utils/AuthContext";
 
 type User = {
     user_id: number;
@@ -8,6 +9,7 @@ type User = {
 
 export default function UserList() {
     const [data, setData] = useState<User[]>([]);
+    const {user} = useAuth();
 
     const refreshList = async () => {
         try {
@@ -32,7 +34,7 @@ export default function UserList() {
                     return (
                         <tr key={key}>
                             <td>{val.user_id}</td>
-                            <td>{val.username}</td>
+                            <td>{user && val.username==user.username?val.username + "*":val.username}</td>
                         </tr>
                     )
                 })}

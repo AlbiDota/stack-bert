@@ -4,9 +4,12 @@ import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-route
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Summoner from "./pages/Summoner";
+import Forums from "./pages/Forums";
+
+import {useAuth} from "./utils/AuthContext";
 
 const App = () => {
-
+    const { user, logout, loading } = useAuth();
 
     return (
         <BrowserRouter>
@@ -15,6 +18,7 @@ const App = () => {
                 <Route element={<MainLayout />}>
                     <Route path={"/"} element={<Home />} />
                     <Route path={"/lol"} element={<Summoner />} />
+                    <Route path={"/Forums"} element={<Forums />} />
                 </Route>
                 
             </Routes>
