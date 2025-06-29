@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {useAuth} from "../../utils/AuthContext";
+import {useAuth} from "../../../utils/AuthContext";
 
 export default function UserStatus() {
     const { user, logout, } = useAuth();

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/UserRoutes");
+const forumRoutes = require("./routes/ForumRoutes")
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors({ //trengs for å kommunisere på tvers av adresser
 })); 
 
 app.use("/users", userRoutes);
+app.use("/forum", forumRoutes);
 
 
 

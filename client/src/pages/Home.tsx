@@ -1,9 +1,9 @@
 import "./Pages.css";
 import { useState } from "react";
-import UserStatus from "../components/UserStatusComp/UserStatus";
-import UserSignup from "../components/UserAuthComp/UserSignupComp/UserSignup";
-import UserLogin from "../components/UserAuthComp/UserLoginComp/UserLogin";
-import UserList from "../components/UserListComp/UserList";
+import UserStatus from "../components/UserRelatedComps/UserStatusComp/UserStatus";
+import UserSignup from "../components/UserRelatedComps/UserSignupComp/UserSignup";
+import UserLogin from "../components/UserRelatedComps/UserLoginComp/UserLogin";
+import UserList from "../components/UserRelatedComps/UserListComp/UserList";
 
 
 function Home() {
