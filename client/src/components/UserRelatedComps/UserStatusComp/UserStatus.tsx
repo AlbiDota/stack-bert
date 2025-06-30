@@ -6,7 +6,7 @@ export default function UserStatus() {
     const { user, logout, } = useAuth();
     
     return (
-        <div>
+        <div style={{display:"inline"}}>
             {!user ? <div style={{color:"red"}}>Offline</div>
                 :  <div style={{color:"green"}}>Online</div>}
 

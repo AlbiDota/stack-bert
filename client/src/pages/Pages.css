@@ -22,13 +22,14 @@
 /*--------------------------------*/
 
 .forums-page-wrapper {
-
+    display: flex;
 }
 
 .forums-main {
-
+    flex:2;
 }
 
 .forums-side {
-    
+    flex:1;
+    margin-left: 2vw;
 }

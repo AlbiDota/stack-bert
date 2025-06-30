@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useAuth } from "../../../../utils/AuthContext";
 import "../ForumPost.tsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./ForumSubmitPost.css";
 
 interface Post {
     postcreator: string;
@@ -11,6 +13,7 @@ interface Post {
 
 export default function ForumSubmitPost() {
     const user = useAuth();
+    const navigate = useNavigate();
     const [post, setPost] = useState<Post>({
         postcreator:"",
         title:"",
@@ -38,8 +41,9 @@ export default function ForumSubmitPost() {
     }
 
     return (
-        <div className="forum-submit-post">
-            <form onSubmit={handleSubmit}>
+        <div>
+            <form onSubmit={handleSubmit}className="forum-submit-post">
+                Submit a post!
                 <input
                     name="title"
                     type="text"

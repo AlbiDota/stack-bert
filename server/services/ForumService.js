@@ -4,7 +4,7 @@ const pool = require("../database");
 // --------------- FORUM POSTS ---------------
 //denna bør sikkert begrenses egt, 
 async function getAllPosts() {
-    const getStatement = `SELECT * FROM forumposts ORDER BY created_at ASC`;
+    const getStatement = `SELECT * FROM forumposts ORDER BY created_at DESC`;
     try {
         const res = await pool.query(getStatement);
         return res.rows;

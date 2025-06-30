@@ -1,0 +1,21 @@
+.forum-submit-post {
+    display: flex;
+    border: 2px solid black;
+    padding:1vw;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.forum-submit-post input {
+    font-size: larger;
+}
+
+.forum-submit-post textarea {
+    font-size: large;
+    height: 8vh;
+}
+
+
+.forum-submit-post button {
+    width: 30%;
+}

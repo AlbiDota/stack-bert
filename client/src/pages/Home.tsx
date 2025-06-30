@@ -15,9 +15,9 @@ function Home() {
         <div className="home-main">
             <h2>stack-bert!</h2>
             <UserStatus />
-            {authDisplay ? <UserSignup /> : <UserLogin />}
+            {!authDisplay ? <UserSignup /> : <UserLogin />}
             <button onClick={()=>setAuthDisplay(!authDisplay)}>
-                {authDisplay? "Go to login" : "Create an account"}
+                {!authDisplay? "Go to login" : "Create an account"}
             </button>
         </div>
         <div className="home-side">
